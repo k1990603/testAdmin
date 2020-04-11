@@ -2,6 +2,49 @@
 	
 	'use strict';
 
+	var loadAction = function() {
+		let country = window.localStorage.getItem('country')
+		$("#nav").load("bundle/header.html", function(){ 
+			if(!country || country === 'zh') {
+				$(".gtco-nav .menu-1>ul>li").eq(0).children("a").html("首页")
+				$(".gtco-nav .menu-1>ul>li").eq(1).children("a").html("关于我们")
+				$(".gtco-nav .menu-1>ul>li").eq(2).children("a").html("产品介绍")
+				$(".gtco-nav .menu-1>ul>li").eq(3).children("a").html("合作申请")
+				// $("#nav").load("page/zh/header.html", function(){ allAction() })
+				$("#cooperation").load("page/zh/cooperation.html", function(){ allAction() })
+				$("#gtco-footer").load("page/zh/footer.html", function(){ allAction() })
+				$("#home").load("page/zh/home.html", function(){ allAction() })
+				$("#about").load("page/zh/about.html", function(){ allAction() })
+				$("#contact").load("page/zh/contact.html", function(){ allAction() })
+				$("#portfolio").load("page/zh/portfolio.html", function(){ allAction() })
+			} else if(country === 'en'){
+				$(".gtco-nav .menu-1>ul>li").eq(0).children("a").html("Home")
+				$(".gtco-nav .menu-1>ul>li").eq(1).children("a").html("About")
+				$(".gtco-nav .menu-1>ul>li").eq(2).children("a").html("Product")
+				$(".gtco-nav .menu-1>ul>li").eq(3).children("a").html("Contact")
+				// $("#nav").load("page/en/header.html", function(){ allAction() })
+				$("#cooperation").load("page/en/cooperation.html", function(){ allAction() })
+				$("#gtco-footer").load("page/en/footer.html", function(){ allAction() })
+				$("#home").load("page/en/home.html", function(){ allAction() })
+				$("#about").load("page/en/about.html", function(){ allAction() })
+				$("#contact").load("page/en/contact.html", function(){ allAction() })
+				$("#portfolio").load("page/en/portfolio.html", function(){ allAction() })
+			} else {
+				$(".gtco-nav .menu-1>ul>li").eq(0).children("a").html("الصفحة الرئيسية")
+				$(".gtco-nav .menu-1>ul>li").eq(1).children("a").html("معلومات عنا")
+				$(".gtco-nav .menu-1>ul>li").eq(2).children("a").html("مقدمة المنتج")
+				$(".gtco-nav .menu-1>ul>li").eq(3).children("a").html("الاتصال بنا")
+				// $("#nav").load("page/uae/header.html", function(){ allAction() })
+				$("#cooperation").load("page/uae/cooperation.html", function(){ allAction() })
+				$("#gtco-footer").load("page/uae/footer.html", function(){ allAction() })
+				$("#home").load("page/uae/home.html", function(){ allAction() })
+				$("#about").load("page/uae/about.html", function(){ allAction() })
+				$("#contact").load("page/uae/contact.html", function(){ allAction() })
+				$("#portfolio").load("page/uae/portfolio.html", function(){ allAction() })
+			}
+			allAction() })
+	}
+
 	var mobileMenuOutsideClick = function() {
 
 		$(document).click(function (e) {
@@ -314,8 +357,46 @@
 		}
 	};
 
-	
-	$(function(){
+	var allAction = function() {
+		$("#cn").click(function(){
+			window.localStorage.setItem('country', 'zh');
+			$(".gtco-nav .menu-1>ul>li").eq(0).children("a").html("首页")
+				$(".gtco-nav .menu-1>ul>li").eq(1).children("a").html("关于我们")
+				$(".gtco-nav .menu-1>ul>li").eq(2).children("a").html("产品介绍")
+				$(".gtco-nav .menu-1>ul>li").eq(3).children("a").html("合作申请")
+		  $("#cooperation").load("page/zh/cooperation.html", function(){ allAction() })
+		  $("#gtco-footer").load("page/zh/footer.html", function(){ allAction() })
+		  $("#home").load("page/zh/home.html", function(){ allAction() })
+		  $("#about").load("page/zh/about.html", function(){ allAction() })
+		  $("#contact").load("page/zh/contact.html", function(){ allAction() })
+		  $("#portfolio").load("page/zh/portfolio.html", function(){ allAction() })
+		})
+		$("#English").click(function(){
+		  window.localStorage.setItem('country', 'en');
+		  $(".gtco-nav .menu-1>ul>li").eq(0).children("a").html("Home")
+				$(".gtco-nav .menu-1>ul>li").eq(1).children("a").html("About")
+				$(".gtco-nav .menu-1>ul>li").eq(2).children("a").html("Product")
+				$(".gtco-nav .menu-1>ul>li").eq(3).children("a").html("Contact")
+		  $("#cooperation").load("page/en/cooperation.html", function(){ allAction() })
+		  $("#gtco-footer").load("page/en/footer.html", function(){ allAction() })
+		  $("#home").load("page/en/home.html", function(){ allAction() })
+		  $("#about").load("page/en/about.html", function(){ allAction() })
+		  $("#contact").load("page/en/contact.html", function(){ allAction() })
+		  $("#portfolio").load("page/en/portfolio.html", function(){ allAction() })
+		})
+		$("#uae").click(function(){
+		  window.localStorage.setItem('country', 'uae');
+		  $(".gtco-nav .menu-1>ul>li").eq(0).children("a").html("الصفحة الرئيسية")
+				$(".gtco-nav .menu-1>ul>li").eq(1).children("a").html("معلومات عنا")
+				$(".gtco-nav .menu-1>ul>li").eq(2).children("a").html("مقدمة المنتج")
+				$(".gtco-nav .menu-1>ul>li").eq(3).children("a").html("الاتصال بنا")
+		  $("#cooperation").load("page/uae/cooperation.html", function(){ allAction() })
+		  $("#gtco-footer").load("page/uae/footer.html", function(){ allAction() })
+		  $("#home").load("page/uae/home.html", function(){ allAction() })
+		  $("#about").load("page/uae/about.html", function(){ allAction() })
+		  $("#contact").load("page/uae/contact.html", function(){ allAction() })
+		  $("#portfolio").load("page/uae/portfolio.html", function(){ allAction() })
+		})
 		mobileMenuOutsideClick();
 		offcanvasMenu();
 		burgerMenu();
@@ -326,6 +407,13 @@
 		goToTop();
 		loaderPage();
 		counterWayPoint();
+	}
+	$(function(){
+		loadAction();
+		// setTimeout(()=>{
+			
+		// },1000)
+		
 	});
 
 
