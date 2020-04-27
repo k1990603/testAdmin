@@ -7,6 +7,12 @@
     <style>
       .maxImg{
         height: 20px;
+        margin: 0 5px;
+      }
+      @media screen and (min-width:768px){
+        .maxImg.top{
+          display: none;
+        }
       }
     </style>
   </head>
@@ -31,6 +37,9 @@
                   <image class="logo" src="images/logo.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="">
   
                   </image>
+                  <a href="javascript:;" id="cn"><img class="maxImg top" src="./images/country/zhongguo.png" alt=""></a>
+                  <a href="javascript:;" id="English"><img class="maxImg top" src="./images/country/meiguo.png" alt=""></a>
+                  <a href="javascript:;" id="uae"><img class="maxImg top" src="./images/country/alabolian.png" alt=""></a>
                 </a>
               </div>
             </div>
